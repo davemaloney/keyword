@@ -1,4 +1,7 @@
 import Fuse from "fuse.js";
+import data from "./data";
+import options from "./options";
+import writeTable from "./writeTable";
 
 export class filterTypes {
   simpleFilter() {
@@ -25,17 +28,6 @@ export class filterTypes {
     const table = document.getElementById("keywordFilterTable");
     const tr = table.getElementsByTagName("tr");
 
-    const options = {
-      tokenize: true,
-      matchAllTokens: true,
-      threshold: 0.4,
-      location: 0,
-      distance: 100,
-      maxPatternLength: 32,
-      minMatchCharLength: 1,
-      keys: ["name"]
-    };
-
     for (let i = 0; i < tr.length; i++) {
       const td = tr[i].getElementsByTagName("td")[0];
       if (td) {
@@ -50,6 +42,17 @@ export class filterTypes {
           tr[i].style.display = "none";
         }
       }
+    }
+  }
+
+  sortFilter() {
+    const input = document.getElementById("simpleFilterInput").value.trim();
+    const fuse = new Fuse(data, options);
+    const result = fuse.search(input);
+    if (input == "" || input == null) {
+      writeTable(data);
+    } else {
+      writeTable(result);
     }
   }
 }

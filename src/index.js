@@ -24,10 +24,17 @@ function component() {
     "<p>A fuzzy search based on <a href='https://www.npmjs.com/package/fuse.js' target='_blank'>fuse.js</a></p>";
   tableKeyword.innerHTML += table;
 
+  let tableSortable = document.createElement("div");
+  tableSortable.id = "sortableTable";
+  tableSortable.className = "table-wrap";
+  tableSortable.innerHTML += "<p>Same fuzzy search with dynamic sorting.</p>";
+  tableSortable.innerHTML += table;
+
   let innerContainer = document.createElement("div");
   innerContainer.className = "table-container";
   innerContainer.appendChild(tableSimple);
   innerContainer.appendChild(tableKeyword);
+  innerContainer.appendChild(tableSortable);
 
   let outerContainer = document.createElement("div");
   outerContainer.innerHTML = input;
@@ -42,4 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterInput = document.getElementById("simpleFilterInput");
   filterInput.addEventListener("keyup", filterListener.simpleFilter);
   filterInput.addEventListener("keyup", filterListener.keywordFilter);
+  filterInput.addEventListener("keyup", filterListener.sortFilter);
 });
