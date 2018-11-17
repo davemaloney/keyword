@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+input {
+  background: black;
+  color: white;
+  font-family: sans-serif;
+}
+
+a {
+  color: skyblue;
+}
+
+input {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid whitesmoke;
+  margin-bottom: 12px;
+}
+
+.table-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.table-wrap {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid whitesmoke;
+  font-size: 18px;
+  flex: 1;
+}
+
+p,
+table th,
+table td {
+  text-align: left;
+  padding: 12px;
+}
+
+table tr {
+  border-bottom: 1px solid whitesmoke;
+}
+
+table tr.header,
+table tr:hover {
+  background-color: dimgray;
+}
