@@ -21,8 +21,8 @@ function writeTable(data) {
   let tableSortable = document.getElementById("sortableTable");
 
   // clear out the old table
-  let oldTable = tableSortable.getElementsByTagName("table");
-  oldTable[0].remove();
+  let oldTable = tableSortable.getElementsByTagName("table")[0];
+  oldTable.parentNode.removeChild(oldTable);
 
   // add in the new table
   tableSortable.appendChild(table);
